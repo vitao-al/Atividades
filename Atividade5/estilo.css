@@ -1,0 +1,64 @@
+@font-face {
+    font-family: minhaFonte;
+    src: url(fontes/TTF\ america.ttf);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color:#740001;
+    background-image: url(images/imagenFundo.png);
+    background-size: 100px;
+}
+table{
+    margin: 30px;
+    height: 100px;
+    width: 192vh;
+    border: 1px solid #FFC500;
+    background-color: #740001;
+}
+tr,td{
+    font-family: minhaFonte;
+    border: 1px solid #FFC500;
+    color: #FFC500;
+    box-shadow: black 0.1em 0.2em;
+}
+img{
+    height: 100px;
+    width: 100px;
+}
+label{
+    display: flex;
+    flex-direction: row;
+}
+#titulo{
+    margin: 0;
+    font-size: 20px;
+    color: #FFC500;
+    font-family:minhaFonte;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#linha{
+    margin:30px;
+    border: 1px solid #FFC500;
+    width: 192vh;
+    height: 0;
+}
+#botao-enviar-resetar{
+    font-family: minhaFonte;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#enviar-resetar{
+    border:2px solid #FFC500;
+    clip-path: polygon(calc(100% - 30px) 0, 100% 30px, 100% calc(100% - 30px), calc(100% - 30px) 100%, 30px 100%, 0 calc(100% - 30px), 0 30px, 30px 0);
+    font-family:minhaFonte;
+    font-style: italic;
+    font-size: 50px ;
+}

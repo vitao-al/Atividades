@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script src="scripts.js"></script>
+    <link rel="icon" href="images/logo_hogwats.ico"/>
+
+    <title>Pré Matrícula Hogwats</title>
+    
+</head>
+<body>
+    <div id="titulo">
+        <img src="images/Hogwarts.ico">
+        <h1> Escola de Magia e Bruxaria de Hogwarts</h1>
+        <h2>Formulário de Pré-matícula</h2>
+    </div>
+    <div id="linha"></div>
+    <form action="">
+        <table>
+            <tr>
+               <td>
+                   <legend>
+                        <h1>
+                           Dados Pessoais:
+                       </h1>
+                   </legend>
+                   <label id="nomeCompleto" for="nomeCompleto">Nome do Aluno</label>
+                   <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Nome Completo" required>
+   
+                   <label id="dataNascimento" for="dataNascimento">Data de Nascimento</label>
+                   <input type="date" id="dataNascimento" name="dataNascimento" required>
+   
+                   <label id="nomePai" for="nomePai">Nome do Pai ou responsável</label>
+                   <input type="text" id="nomePai" name="nomePai" placeholder="Nome do Pai ou responsável" required>
+   
+                   <label id="nomeMãe" for="nomeMãe">Nome do Mãe ou responsável</label>
+                   <input type="text" id="nomeMãe" name="nomeMãe" placeholder="Nome do Mãe ou responsável" required>
+   
+                   <label id="telefone" for="telefone">Telefone</label>
+                   <input type="tel" id="telefone" name="telefone" placeholder="Ex: (DD) xxxx-xxxx" required>
+   
+                   <label id="email" for="email">E-mail</label>
+                   <input type="text" id="nomePai" name="nomePai" placeholder="Ex:exemplo@gmail.com" required>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <legend>
+                   <h1>
+                       Informações de Matrícula:
+                   </h1>
+                   </legend>
+                   <label id="serie">
+                       Série:
+                       <select required>
+                           <option>
+                                Nenhum
+                           </option>
+                           <option>
+                               opcao 1
+                           </option>
+                           <option>
+                               opcao 2
+                           </option>
+                           <option>
+                            opcao 3
+                           </option>
+                       </select>
+                   </label>
+                   <label id="turno">
+                       Turnos:
+                       <input type="radio" name="turno" id="turno" value="manhã" required>Manhã</input>
+                       <input type="radio" name="turno" id="turno" value="tarde" required>Tarde</input>                
+                   </label>
+   
+                   <label id="atividadeExtraCurricula">
+                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 1" required>Texto1</input>
+                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 2" required>Texto2</input>
+                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 3" required>Texto3</input>
+                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 4" required>Texto4</input>
+   
+                   </label>
+                   </td>
+           </tr>
+       </table>
+
+       <div id="botao-enviar-resetar">
+        <input type="submit" id="enviar-resetar" name="enviar-enviar" value="Enviar">
+        <input type="reset" id="enviar-resetar" name="resetar" value="Limpar Campos">
+       </div>
+
+    </form>
+</body>
+</html>

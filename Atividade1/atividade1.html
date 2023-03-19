@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="folha.css">
+    <title>Atividade 1</title>
+
+    <script>
+        function getNomeSobrenome(){
+            let campo_de_texto = document.getElementById('entrada').value;
+            let nome_Sobrenome = campo_de_texto.split(" ");
+            let nome = (nome_Sobrenome.at(0));
+            let sobrenome = (nome_Sobrenome.at(-1));
+            document.getElementById('label2').style.display = 'block';
+            document.getElementById('Nome').innerHTML = nome;
+            document.getElementById('Sobrenome').innerHTML = sobrenome;
+        }
+    </script>
+
+</head>
+<body>
+    <img id="ifal" src="https://www2.ifal.edu.br/o-ifal/comunicacao/arquivos/logos/NOVOLOGO_Ifal_Hor_Preto.png">
+
+    <div class="caixa1">
+        <h1>
+            Atividade 1
+        </h1>
+
+        <label id="label1">
+            Nome completo:
+            <input type="text" id="entrada" placeholder="Nome completo">
+            <button onclick="getNomeSobrenome()"> >> </button>
+        </label>           
+    
+    
+        <label id="label2">
+                Nome:
+                <div id="NomeSobrenome">
+                    <p id="Nome"></p>
+                </div>
+                Sobrenome:
+                <div id="NomeSobrenome">
+                    <p id="Sobrenome"></p>
+                </div>
+        </label>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade 2</title>
+    <style>
+        body{
+            background-color: black;
+        
+        }
+        input{
+            border: 2px solid black;
+            color: black;
+            background-color: transparent;
+            border-radius: 5px;
+        }
+        button{
+            color: white;
+            border-radius: 5px;
+            background-color: black;
+        }
+        h1{
+            font-family:'Courier New', Courier, monospace;
+            margin-bottom: 30px;
+        }
+        ::-webkit-input-placeholder{
+            color: black;
+        }
+        #caixa{
+            height: 400px;
+            background-image: linear-gradient(90deg, rgb(14, 216, 216),rgb(238, 42, 133));
+            border: 6px solid black;
+            margin-top: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #final{
+            color: white;
+            display: none;
+            border: 3px solid black;
+            border-radius: 5px;
+            background-color: black;
+        }
+        #ifal{
+            margin: 0;
+            height: 80px;
+            width: 405px;
+        }
+    </style>
+
+    <script>
+        function IMC(){
+            let nome = document.getElementById("nome").value;
+            let valor1 = document.getElementById("peso").value;
+            let valor2 = document.getElementById("altura").value;
+
+            var peso = parseInt(valor1);
+            var altura = parseFloat(valor2);
+
+            document.getElementById("final").innerHTML = "Olá, "+nome+". O seu IMC é:"+(peso/(altura**2)).toFixed(3);
+            document.getElementById('final').style.display = 'block';
+        }
+
+
+    </script>
+</head>
+<body>
+    <img id="ifal" src="https://www2.ifal.edu.br/o-ifal/comunicacao/arquivos/logos/NOVOLOGO_Ifal_Hor_Preto.png">
+    <div id="caixa">
+
+        <h1 id="centro">Cálculo IMC</h1>
+        <p>
+            Nome:
+            <input id="nome" placeholder="Digite seu nome:"></p>
+        <p>Peso:
+            <input id="peso" placeholder="Digite seu peso:"></p>
+        <p>Altura:
+            <input id="altura" placeholder="Digite sua altura:"></p>
+        <br>
+
+        <button type="button" onclick="IMC()">Calcular IMC</button>
+
+        <div id="teste2">
+            <p id="final"></p>
+        </div>
+
+    </div>
+    
+</body>
+</html>
