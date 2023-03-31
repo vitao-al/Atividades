@@ -10,16 +10,15 @@
     <link rel="icon" href="images/logo_hogwats.ico"/>
 
     <title>Pré Matrícula Hogwats</title>
-    
 </head>
 <body>
     <div id="titulo">
-        <img src="images/Hogwarts.ico">
         <h1> Escola de Magia e Bruxaria de Hogwarts</h1>
         <h2>Formulário de Pré-matícula</h2>
     </div>
     <div id="linha"></div>
-    <form action="">
+    
+    <form action="" id="formulario">
         <table>
             <tr>
                <td>
@@ -28,23 +27,32 @@
                            Dados Pessoais:
                        </h1>
                    </legend>
+
                    <label id="nomeCompleto" for="nomeCompleto">Nome do Aluno</label>
-                   <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Nome Completo" required>
-   
+                   <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Nome Completo" class=".required">
+                   <br>
+
                    <label id="dataNascimento" for="dataNascimento">Data de Nascimento</label>
-                   <input type="date" id="dataNascimento" name="dataNascimento" required>
+                   <input type="date"  min="1940-01-01" max="2005-01-01" id="dataNascimento" name="dataNascimento" class=".required">
+                   <br>
    
                    <label id="nomePai" for="nomePai">Nome do Pai ou responsável</label>
-                   <input type="text" id="nomePai" name="nomePai" placeholder="Nome do Pai ou responsável" required>
-   
+                   <input type="text" id="nomePai" name="nomePai" placeholder="Nome do Pai ou responsável" class=".required">
+                   <br>
+
                    <label id="nomeMãe" for="nomeMãe">Nome do Mãe ou responsável</label>
-                   <input type="text" id="nomeMãe" name="nomeMãe" placeholder="Nome do Mãe ou responsável" required>
-   
+                   <input type="text" id="nomeMãe" name="nomeMãe" placeholder="Nome do Mãe ou responsável" class=".required">
+                   <br>
+
+                   <label for="telefone-ddd">DDD</label>
+                   <input type="text" id="telefone-ddd" onblur="checarddd()">
                    <label id="telefone" for="telefone">Telefone</label>
-                   <input type="tel" id="telefone" name="telefone" placeholder="Ex: (DD) xxxx-xxxx" required>
-   
+                   <input type="tel" id="telefone" name="telefone" placeholder="Ex: (DD) xxxx-xxxx" class=".required">
+                   <br>
+
                    <label id="email" for="email">E-mail</label>
-                   <input type="text" id="nomePai" name="nomePai" placeholder="Ex:exemplo@gmail.com" required>
+                   <input type="email" id="email" name="email" placeholder="Ex:exemplo@gmail.com" class=".required" onblur="checarEmail()">
+                   
                </td>
            </tr>
            <tr>
@@ -71,28 +79,74 @@
                            </option>
                        </select>
                    </label>
+                   <br>
                    <label id="turno">
                        Turnos:
                        <input type="radio" name="turno" id="turno" value="manhã" required>Manhã</input>
                        <input type="radio" name="turno" id="turno" value="tarde" required>Tarde</input>                
                    </label>
+
+                   <br>
    
                    <label id="atividadeExtraCurricula">
-                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 1" required>Texto1</input>
-                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 2" required>Texto2</input>
-                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 3" required>Texto3</input>
-                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 4" required>Texto4</input>
-   
+                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 1" onclick="validarCheckBox()">Texto1</input>
+                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 2" onclick="validarCheckBox()">Texto2</input>
+                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 3" onclick="validarCheckBox()">Texto3</input>
+                       <input type="checkbox" id="atividadeExtraCurricula" name="atividadeExtraCurricula" value="Texto 4" onclick="validarCheckBox()">Texto4</input>
+                       
                    </label>
                    </td>
            </tr>
        </table>
 
        <div id="botao-enviar-resetar">
-        <input type="submit" id="enviar-resetar" name="enviar-enviar" value="Enviar">
+        <input type="submit" onclick="validarDDD(),validarEmail() " id="enviar-resetar" name="enviar-enviar" value="Enviar">
         <input type="reset" id="enviar-resetar" name="resetar" value="Limpar Campos">
        </div>
 
     </form>
+    <script>
+        function checarddd() {
+           
+            let ddd = document.getElementById("telefone-ddd").value;
+            let dd2 = ["11", "12","13","14","15","16", "17","18", "19", "21","22","24","27","28","31","32","33","34","35","37","38","41","42","43","44","45","46","47","48","49","51","53","54","55","61","62","63","64","65","66","67","68","69","71","73","74","75","77","79","81","82","83","84","85","86", "87", "88", "89", "91","92","93","94", "95", "96","97","98","99"]
+            if(dd2.includes(ddd)){ // se dd2 estiver incluso em ddd
+                document.getElementById("telefone-ddd").innerHTML = ddd //subistituir posição 'numb1' por ddd
+                alert("parabéns você concluio seu cadastro!!")
+            }
+           else{
+            alert("você esta cometendo um erro em DDD")
+           }
+        }
+        
+        function validarCheckBox(){
+         let boxes = document.getElementsByName("atividadeExtraCurricula"); // ler todos os nomes que pussir check
+         let limit = 3;
+         let contador = 0;
+         for (let i = 0; i < boxes.length;i++){ // se variavel [i] -= posição 0; variavel i < que boxes; adicione mais um
+            if(boxes[i].checked){ //se boxes variavel [i] checado
+                contador++; // adicionar mais um
+            if(contador > limit){ //se contador for maior que limite
+                alert("você esta excedendo o limite, aceitamos apenas 3 opções");
+                boxes[i].checked = false; //se boxes for igual a falso
+                contador--; // diminuir um
+            }
+            }
+         }
+              
+        }
+          
+        function checarEmail(){
+        if( document.forms[0].email.value=="" 
+           || document.forms[0].email.value.indexOf('@')==-1  //checar se pelomenos em um local de email vai possuir um arroba
+             || document.forms[0].email.value.indexOf('.')==-1 ) //checar se pelomenos em um local de email vai possuir um .
+            {
+              alert( "por favor, informe um E-MAIL válido!" );
+              return false;
+            }
+          return true
+        }
+            
+        </script>
 </body>
 </html>
